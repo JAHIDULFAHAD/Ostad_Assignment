@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import '../Utils/urls.dart';
 import '../Widget/snackbar_massege.dart';
 
 class AddProduct extends StatefulWidget {
@@ -127,7 +128,7 @@ class _AddProductState extends State<AddProduct> {
     _addProductInProgress=true;
     setState(() {});
 
-    Uri url = Uri.parse('http://35.73.30.144:2008/api/v1/CreateProduct');
+    Uri url = Uri.parse(Urls.addProductUrl);
     int totalPrice = int.parse(_unitPriceController.text )* int.parse(_quantityController.text);
     Map<String, dynamic> requestBody = {
       "ProductName": _productNameController.text.trim(),
